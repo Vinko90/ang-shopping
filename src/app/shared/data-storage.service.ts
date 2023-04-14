@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/auth.service';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from './recipe.model';
@@ -10,7 +11,7 @@ import { Recipe } from './recipe.model';
   providedIn: 'root'
 })
 export class DataStorageService {
-  private baseUrl: string = environment.fireBase;
+  private baseUrl: string = environment.firebaseUrl;
 
   constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
 

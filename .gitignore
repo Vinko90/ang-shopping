@@ -163,5 +163,5 @@ aio/content/examples/.DS_Store
 
 .angular
 
-./src/environments/environment.ts
-./src/environments/.env
+src/environments/environment.ts
+src/environments/.env

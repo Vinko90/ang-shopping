@@ -2,4 +2,7 @@
 Playground code for a web app shopping list in Angular 14
 
 ## Test Env's
-Set the following environment keys for testing with Firebase: API_KEY and FIRE_SHOP.
+Before running the project do the following:
+1. Create a .env file in the environment folder
+2. Define API_KEY=xxx and FIRE_SHOP=xxx secrets
+3. Run npm run config to generate environment.ts
