@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 
+import { AuthService } from '../auth/auth.service';
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from './recipe.model';
 
@@ -9,9 +10,9 @@ import { Recipe } from './recipe.model';
   providedIn: 'root'
 })
 export class DataStorageService {
-  private baseUrl: string = 'https://localhost'; //firebase dummy
+  private baseUrl: string = environment.fireBase;
 
-  constructor(private http: HttpClient, private recipeService: RecipeService) { }
+  constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
@@ -23,13 +24,14 @@ export class DataStorageService {
 
   loadRecipes() {
     return this.http.get<Recipe[]>(this.baseUrl + '/recipes.json')
-      .pipe(map(recipes => {
-        return recipes.map(recipe => {
-          return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
-        });
-      }),
-      tap(recipes => {
-        this.recipeService.setRecipes(recipes);
-      }))
+      .pipe(
+        map(recipes => {
+          return recipes.map(recipe => {
+            return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
+          });
+        }),
+        tap(recipes => {
+          this.recipeService.setRecipes(recipes);
+        }));
   }
 }

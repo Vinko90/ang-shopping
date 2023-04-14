@@ -162,3 +162,6 @@ baseline.json
 aio/content/examples/.DS_Store
 
 .angular
+
+./src/environments/environment.ts
+./src/environments/.env
