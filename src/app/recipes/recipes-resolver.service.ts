@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
 
-import { Recipe } from "../shared/recipe.model";
+import { Recipe } from "../shared/models/recipe.model";
 import { DataStorageService } from "../shared/data-storage.service";
 import { Observable } from "rxjs";
 import { RecipeService } from "./recipe.service";

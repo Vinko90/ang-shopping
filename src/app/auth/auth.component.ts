@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { AuthResponseData } from '../shared/authresponsedata.model';
+import { AuthResponseData } from '../shared/models/authresponsedata.model';
 import { AuthService } from './auth.service';
 
 @Component({
