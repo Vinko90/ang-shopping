@@ -108,7 +108,6 @@ export class AuthService {
 
   private handleAuthentication(email: string, userId: string, token: string, expiresIn: number) {
     const expDate = new Date(new Date().getTime() + (expiresIn * 1000));
-    console.log(expDate);
     const user = new User(email, userId, token, expDate);
     this.user.next(user);
     this.autoLogout(expiresIn * 1000);
