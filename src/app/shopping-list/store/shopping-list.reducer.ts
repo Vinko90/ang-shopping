@@ -1,10 +1,6 @@
 import { Ingredient } from "../../shared/models/ingredient.model";
 import * as ShopActions from "./shopping-list.actions";
 
-export interface ApplicationState {
-  shoppingList: ShopState;
-}
-
 export interface ShopState {
   ingredients: Ingredient[];
   editedIngredient: Ingredient;

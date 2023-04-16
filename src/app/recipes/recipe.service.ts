@@ -4,8 +4,8 @@ import { Subject } from 'rxjs';
 
 import { Ingredient } from '../shared/models/ingredient.model';
 import { Recipe } from '../shared/models/recipe.model';
+import { ApplicationState } from '../app.reducer';
 import * as ShopRedxActions from '../shopping-list/store/shopping-list.actions';
-import * as ShopRedx from '../shopping-list/store/shopping-list.reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,7 @@ export class RecipeService {
       ])
   ];
   
-  constructor(private store: Store<ShopRedx.ApplicationState>) { }
+  constructor(private store: Store<ApplicationState>) { }
 
   getRecipes() {
     return this.recipes.slice();

@@ -16,17 +16,14 @@ class AuthFirebaseData {
 })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-
   private tokenExpTimer: any;
-  private baseUrl: string = 'https://identitytoolkit.googleapis.com/v1/accounts';
-  private apiKey: string = environment.apiKey;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   signUp(email: string, password: string) {
     let reqData = new AuthFirebaseData(email, password, true);
-    return this.http.post<AuthResponseData>(this.baseUrl + ':signUp', reqData, { 
-      params: new HttpParams().set('key', this.apiKey) 
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp', reqData, { 
+      params: new HttpParams().set('key', environment.apiKey) 
     })
     .pipe(catchError(this.handleErrorResponse), tap(resData => {
       this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
@@ -35,8 +32,8 @@ export class AuthService {
 
   login(email: string, password: string) {
     let reqData = new AuthFirebaseData(email, password, true);
-    return this.http.post<AuthResponseData>(this.baseUrl + ':signInWithPassword', reqData, { 
-      params: new HttpParams().set('key', this.apiKey) 
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword', reqData, { 
+      params: new HttpParams().set('key', environment.apiKey) 
     })
     .pipe(catchError(this.handleErrorResponse), tap(resData => {
       this.handleAuthentication(resData.email, resData.localId, resData.idToken, +resData.expiresIn);
