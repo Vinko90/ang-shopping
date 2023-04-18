@@ -25,7 +25,7 @@ export function shoppingListReducer(state: ShopState = initialState, action: Sho
             ...state,
             ingredients: [...state.ingredients, ...action.payload]
           };
-        case ShopActions.UPDATE_INGREDIENT:
+        case ShopActions.UPDATE_INGREDIENT: {
           const ingredient = state.ingredients[state.editedIngredientIndex];
           const updateIngredient = {
             ...ingredient,
@@ -39,6 +39,7 @@ export function shoppingListReducer(state: ShopState = initialState, action: Sho
             editedIngredientIndex: -1,
             editedIngredient: null
           };
+        }
         case ShopActions.DELETE_INGREDIENT:
           return {
             ...state,

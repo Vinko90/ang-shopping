@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const setEnv = () => {
     const fs = require('fs');
     const writeFile = fs.writeFile;

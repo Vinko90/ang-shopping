@@ -11,8 +11,8 @@ import { AuthService } from './auth.service';
   templateUrl: './auth.component.html'
 })
 export class AuthComponent {
-  isLoginMode: boolean = true;
-  isLoading: boolean = false;
+  isLoginMode = true;
+  isLoading = false;
   error: string = null;
 
   constructor(private authService: AuthService, private router: Router) { }

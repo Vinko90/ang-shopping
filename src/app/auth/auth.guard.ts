@@ -14,7 +14,7 @@ export class AuthGuard {
         return this.authService.user.pipe(
             take(1),
             map(user => {
-                if (!!user) {
+                if (user) {
                     return true;
                 }
                 return this.router.createUrlTree(['/auth']);

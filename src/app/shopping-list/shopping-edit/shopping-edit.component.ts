@@ -14,7 +14,7 @@ import * as ShopRedxActions from '../store/shopping-list.actions';
 export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') sflForm: NgForm;
   subscription: Subscription;
-  editMode: boolean = false;
+  editMode = false;
   editedItem: Ingredient;
 
   constructor(private store: Store<ApplicationState>) { }
